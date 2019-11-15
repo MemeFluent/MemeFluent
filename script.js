@@ -19,3 +19,5 @@ $(document).ready(function () {
         $("imagesinner").append(data);
     });
 })
+
+//https://www.w3schools.com/howto/howto_css_chat.asp
