@@ -50,6 +50,25 @@ socket.on("connection", socket => {
 
     socket.broadcast.emit("received", { message: msg });
 
+//connect to gfycat API
+    const Gfycat = require('gfycat-sdk');
+    const clientId = '2_MPWi0c';
+    const clientSecret = 'b00UBk0XV_AAeMNwa3wqxUxdb1vaQfAaGjYCRCx3FUf_bMzAZUi8OQA4Lp1QIJu8';
+    var gfycat = new Gfycat({clientId: clientId, clientSecret: clientSecret});
+
+//gfycat API authentication
+    gfycat.authenticate((err, data) => {
+      //Your app is now authenticated
+      assert.equal(data.access_token, gfycat.token);
+      console.log('token', gfycat.token);
+    });
+
+    gfycat.authenticate().then(res => {
+      //Your app is now authenticated
+      assert.equal(res.access_token, gfycat.token);
+      console.log('token', gfycat.token);
+    });
+
 //save the chat to the database
     connect.then(db => {
       console.log("connected correctly to the server");
@@ -63,3 +82,4 @@ socket.on("connection", socket => {
 http.listen(port, () => {
   console.log("Running on Port: " + port);
 });
+
