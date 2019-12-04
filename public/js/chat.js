@@ -4,12 +4,14 @@ var username = "test";
 
 (function() {
   $("form").submit(function(e) {
-    if ($("#message").val().trim() !== "") {
+    var value = $('#message');
+
+    if ($(value).val().trim() !== "") {
       let li = document.createElement("li");
       e.preventDefault();
-      socket.emit("chat message", $("#message").val(), username);
+      socket.emit("chat message", $(value).val(), username);
 
-      messages.appendChild(li).append($("#message").val());
+      messages.appendChild(li).append($(value).val());
       let span = document.createElement("span");
       messages.appendChild(span).append("by " + username);
 
