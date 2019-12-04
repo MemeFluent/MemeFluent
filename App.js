@@ -45,10 +45,10 @@ socket.on("connection", socket => {
     socket.broadcast.emit("notifyStopTyping");
   });
 
-  socket.on("chat message", function(msg) {
+  socket.on("chat message", function(msg, usr) {
     console.log("message: " + msg);
 
-    socket.broadcast.emit("received", { message: msg });
+    socket.broadcast.emit("received", { message: msg, user: usr });
 
 //connect to gfycat API
     const Gfycat = require('gfycat-sdk');

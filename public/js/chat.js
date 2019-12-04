@@ -1,15 +1,16 @@
 var socket = io();
 var messages = document.getElementById("messages");
+var username = "test";
 
 (function() {
   $("form").submit(function(e) {
     let li = document.createElement("li");
-    e.preventDefault(); //prevents page from reloading
-    socket.emit("chat message", $("#message").val());
+    e.preventDefault(); 
+    socket.emit("chat message", $("#message").val(), username);
 
     messages.appendChild(li).append($("#message").val());
     let span = document.createElement("span");
-    messages.appendChild(span).append("by " + "test" + ": " + "right now");
+    messages.appendChild(span).append("by " + username);
 
     $("#message").val("");
 
@@ -21,7 +22,7 @@ var messages = document.getElementById("messages");
     let span = document.createElement("span");
     var messages = document.getElementById("messages");
     messages.appendChild(li).append(data.message);
-    messages.appendChild(span).append("by " + "test" + ": " + "right now");
+    messages.appendChild(span).append("by " + data.user);
     console.log("recieved message");
   });
 })();
@@ -62,3 +63,8 @@ messageInput.addEventListener("keyup", () => {
 socket.on("notifyStopTyping", () => {
   typing.innerText = "";
 });
+
+function getUsername(){
+    var name=prompt("Please enter your user name","Peter");
+    username = name;
+}
