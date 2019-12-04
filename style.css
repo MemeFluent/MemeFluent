@@ -1,0 +1,60 @@
+body {
+  font-family: "Lato", sans-serif;
+  color: black;
+  overflow: hidden;
+  float: center;
+}
+
+#chat{
+	margin-left: 100px;
+}
+
+.block{
+	border: 1px solid black;
+	width: 500px;
+	max-width: 500px;
+	height: 500px;
+	max-height: 500px;
+}
+
+#screen{
+	box-sizing: border-box;
+	width:250px; /* or whatever width you want. */
+   	max-width:250px; /* or whatever width you want. */
+   	padding: 1px;
+	height: 300px;
+	overflow: scroll;
+}
+
+#images{
+	width: 150px;
+	height: 300px;
+	display: grid;
+	grid-template-columns: 40% auto;
+	grid-gap: 10px;
+}
+
+#imagesinner{
+	grid-template-columns: 30% auto;
+}
+
+#chatbox{
+	height: 50px;
+}
+
+h2{
+	padding: 50px;
+}
+
+#up,#down{
+	width: 30px;
+	height: 30px;
+	float: left;
+	display: inline;
+}
+
+img {
+	max-height: 80%;
+	max-width: 80%;
+	padding: 2px;
+}

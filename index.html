@@ -1,0 +1,33 @@
+<html>
+<header>
+	<title>
+		MemeFluent
+	</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type = "text/javascript" src = "script.js" ></script>
+</header>
+<body>
+	<h2>Meme Fluent</h2>
+	<div id="chat">
+		<div id="screen" class="block">
+			Welcome!
+		</div>
+		<div id="images" class="block">
+			<input type="button" id="up" value="up">
+			<div id="imagesinner">
+				<img src="memes/test.jpg" class="preview" alt="test">
+				<img src="memes/test2.gif" class="preview">
+			</div>
+			<input type="button" id="down" value="do">
+		</div>
+		<div id="chatbox" class="block">
+			<input type="button" id="send" onclick="sendtext()" value="send">
+			<input type="text" id="textbox">
+		</div>
+		
+	</div>
+</body>
+</html>
