@@ -4,16 +4,17 @@ var username = "test";
 
 (function() {
   $("form").submit(function(e) {
-    let li = document.createElement("li");
-    e.preventDefault(); 
-    socket.emit("chat message", $("#message").val(), username);
+    if ($("#message").val().trim() != "") {
+      let li = document.createElement("li");
+      e.preventDefault(); 
+      socket.emit("chat message", $("#message").val(), username);
 
-    messages.appendChild(li).append($("#message").val());
-    let span = document.createElement("span");
-    messages.appendChild(span).append("by " + username);
+      messages.appendChild(li).append($("#message").val());
+      let span = document.createElement("span");
+      messages.appendChild(span).append("by " + username);
 
-    $("#message").val("");
-
+      $("#message").val("");
+    }
     return false;
   });
 
