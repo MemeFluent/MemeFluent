@@ -53,7 +53,7 @@ messageInput.addEventListener("keypress", () => {
 
 socket.on('is_online', function(user) {
   $('#messages').append($('<li>').html(user));
-});l
+});
 
 socket.on("notifyTyping", data => {
   typing.innerText = data.user + " " + data.message;
