@@ -4,7 +4,7 @@ var username = "test";
 
 (function() {
   $("form").submit(function(e) {
-    if ($("#message").val().trim() != "") {
+    if ($("#message").val().trim() !== "") {
       let li = document.createElement("li");
       e.preventDefault();
       socket.emit("chat message", $("#message").val(), username);
@@ -78,14 +78,14 @@ socket.on("meme", data => {
 });
 
 function getUsername(){
-    var assignName=prompt("Please enter your user name","Peter");
-    username = assignName;
+    username=prompt("Please enter your user name","Peter");
+    $('#messages').append("<span> "+username+" joins the chat</span>");
 }
 
 $(document).ready(function(){
     $('img[class=preview]').each(function() {
         $(this).click(function(){
-          $('#messages').append("<br> <img src='"+$(this).attr('src')+"'><br><span>by "+username+"</span>");
+          $('#messages').append("<br> <img alt='displayMeme' src='"+$(this).attr('src')+"'><br><span>by "+username+"</span>");
           socket.emit("meme", $(this).attr('src'), username);
         });
     });
