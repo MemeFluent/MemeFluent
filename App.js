@@ -24,6 +24,18 @@ app.use(express.static(__dirname + "/public"));
 
 socket = io(http);
 
+//connect to gfycat API
+const Gfycat = require('gfycat-sdk');
+const client = '2_MPWi0c';
+const secret = 'b00UBk0XV_AAeMNwa3wqxUxdb1vaQfAaGjYCRCx3FUf_bMzAZUi8OQA4Lp1QIJu8';
+var gfycat = new Gfycat({clientId: client, clientSecret: secret});
+let options = {
+  count: 10,
+  cursor: ''
+};
+
+gfycat.trendingGifs(options).then(data => console.log(data));
+
 //connect to the database
 const Chat = require("./models/Chat");
 const connect = require("./dbconnect");
@@ -50,28 +62,6 @@ socket.on("connection", socket => {
     console.log("message: " + msg);
 
     socket.broadcast.emit("received", { message: msg, user: usr });
-
-//connect to gfycat API
-    const Gfycat = require('gfycat-sdk');
-    const client = '2_MPWi0c';
-    const secret = 'b00UBk0XV_AAeMNwa3wqxUxdb1vaQfAaGjYCRCx3FUf_bMzAZUi8OQA4Lp1QIJu8';
-    var gfycat = new Gfycat({clientId: client, clientSecret: secret});
-
-
-
-
-//gfycat API authentication
-    gfycat.authenticate((err, data) => {
-      //Your app is now authenticated
-      assert.equal(data.access_token, gfycat.token);
-      console.log('token', gfycat.token);
-    });
-
-    gfycat.authenticate().then(res => {
-      //Your app is now authenticated
-      assert.equal(res.access_token, gfycat.token);
-      console.log('token', gfycat.token);
-    });
 
 //save the chat to the database
     connect.then(db => {
