@@ -88,7 +88,6 @@ function getUsername(){
 
 $(document).ready(function(){
     $('img[class=preview]').each(function() {
-      console.log("worked");
         $(this).click(function(){
           $('#messages').append("<br> <img src='"+$(this).attr('src')+"'><br><span>by "+username+"</span>");
           socket.emit("meme", $(this).attr('src'), username);
