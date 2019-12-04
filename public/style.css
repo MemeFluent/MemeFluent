@@ -64,7 +64,7 @@ body {
 .messages {
   position: relative;
   list-style: none;
-  padding: 20px 10px 0 10px;
+  padding: 20px 10px 80px 10px;
   margin: 0;
   height: 347px;
   overflow: scroll;
@@ -214,4 +214,15 @@ body {
 .messages > span {
   font-size: 10px;
   font-style: italic;
+}
+
+img {
+  max-height: 20%;
+  max-width: 20%;
+  padding: 2px;
+}
+
+.preview{
+  max-width: 10%;
+  max-height: 10%;
 }
