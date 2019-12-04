@@ -4,6 +4,7 @@ var messages = document.getElementById("messages");
 (function() {
   $("form").submit(function(e) {
     let li = document.createElement("li");
+    e.preventDefault(); //prevents page from reloading
     socket.emit("chat message", $("#message").val());
 
     messages.appendChild(li).append($("#message").val());
