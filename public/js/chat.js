@@ -23,7 +23,7 @@ var username = "test";
     var messages = document.getElementById("messages");
     messages.appendChild(li).append(data.message);
     messages.appendChild(span).append("by " + data.user);
-    console.log("recieved message");
+    console.log("received message");
   });
 })();
 
@@ -51,10 +51,6 @@ messageInput.addEventListener("keypress", () => {
   socket.emit("typing", { user: "Someone", message: "is typing..." });
 });
 
-socket.on('is_online', function(user) {
-  $('#messages').append($('<li>').html(user));
-});
-
 socket.on("notifyTyping", data => {
   typing.innerText = data.user + " " + data.message;
   console.log(data.user + data.message);
@@ -69,6 +65,6 @@ socket.on("notifyStopTyping", () => {
 });
 
 function getUsername(){
-    var name=prompt("Please enter your user name","Peter");
-    username = name;
+    var assignName=prompt("Please enter your user name","Peter");
+    username = assignName;
 }

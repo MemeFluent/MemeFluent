@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <title>Memefluent</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -17,7 +17,7 @@
       -->
         <div class="title">M E M E F L U E N T</div>
     </div>
-  
+
     <ul id ="messages" class="messages">
         
     </ul>
@@ -26,7 +26,8 @@
    <i id="typing"></i>
     <form id="form">
         <div class="message_input_wrapper">
-            <input id="message" class="message_input" placeholder="Enter a message" />
+            <label for="message"></label>
+            <input class="message_input" id="message" placeholder="Enter a message">
         </div>
         <button class="send_message">
            Send
@@ -35,10 +36,10 @@
     </div>
   </div>
 
-    <script src="/js/socket.js"></script>
+    <script src="./js/socket.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/rexeze/formatTimeStamp/src/index-cdn.js"></script>
-    <script src="/js/chat.js"></script>
+    <script src="./js/chat.js"></script>
 
   </body>
 </html>

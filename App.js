@@ -45,11 +45,6 @@ const connect = require("./dbconnect");
 socket.on("connection", socket => {
   console.log("user connected");
 
-  socket.on('username', function(username) {
-    socket.username = username;
-    io.emit('is_online', '🔵 <i>' + socket.username + 'is joining the chat..</i>');
-  });
-
   socket.on("disconnect", function() {
     console.log("user disconnected");
   });
