@@ -51,6 +51,10 @@ messageInput.addEventListener("keypress", () => {
   socket.emit("typing", { user: "Someone", message: "is typing..." });
 });
 
+socket.on('is_online', function(user) {
+  $('#messages').append($('<li>').html(user));
+});l
+
 socket.on("notifyTyping", data => {
   typing.innerText = data.user + " " + data.message;
   console.log(data.user + data.message);

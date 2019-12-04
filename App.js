@@ -29,6 +29,8 @@ const Gfycat = require('gfycat-sdk');
 const client = '2_MPWi0c';
 const secret = 'b00UBk0XV_AAeMNwa3wqxUxdb1vaQfAaGjYCRCx3FUf_bMzAZUi8OQA4Lp1QIJu8';
 var gfycat = new Gfycat({clientId: client, clientSecret: secret});
+
+//search for trending gifs
 let options = {
   count: 10,
   cursor: ''
@@ -42,6 +44,11 @@ const connect = require("./dbconnect");
 
 socket.on("connection", socket => {
   console.log("user connected");
+
+  socket.on('username', function(username) {
+    socket.username = username;
+    io.emit('is_online', '🔵 <i>' + socket.username + 'is joining the chat..</i>');
+  });
 
   socket.on("disconnect", function() {
     console.log("user disconnected");
