@@ -55,7 +55,7 @@ socket.on("connection", socket => {
     const clientId = '2_MPWi0c';
     const clientSecret = 'b00UBk0XV_AAeMNwa3wqxUxdb1vaQfAaGjYCRCx3FUf_bMzAZUi8OQA4Lp1QIJu8';
     var gfycat = new Gfycat({clientId: clientId, clientSecret: clientSecret});
-
+/*
 //gfycat API authentication
     gfycat.authenticate((err, data) => {
       //Your app is now authenticated
@@ -68,7 +68,7 @@ socket.on("connection", socket => {
       assert.equal(res.access_token, gfycat.token);
       console.log('token', gfycat.token);
     });
-
+*/
 //save the chat to the database
     connect.then(db => {
       console.log("connected correctly to the server");

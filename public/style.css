@@ -13,7 +13,7 @@ body {
   max-width: 800px;
   height: 500px;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: white;
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
@@ -200,7 +200,7 @@ body {
 .messages > li {
   font-size: 15px;
   color: rgb(0, 0, 0);
-  background: rgba(255, 255, 255, 0.46);
+  background: rgba(29, 43, 255, 0.46);
   border-radius: 5px;
   width: fit-content;
 }
