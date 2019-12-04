@@ -11,6 +11,7 @@ const http = require("http").Server(app);
 //use socket.io module
 const io = require("socket.io");
 
+const host ='localhost';
 const port = 5000;
 
 //use bodyParser middleware
@@ -80,6 +81,6 @@ socket.on("connection", socket => {
 });
 
 http.listen(port, () => {
-  console.log("Running on Port: " + port);
+  console.log(`MemeFluent is up and running!  Click here: http://${host}:${port}/`);
 });
 
