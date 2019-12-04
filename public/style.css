@@ -215,3 +215,14 @@ body {
   font-size: 10px;
   font-style: italic;
 }
+
+img {
+  max-height: 20%;
+  max-width: 20%;
+  padding: 2px;
+}
+
+.preview{
+  max-width: 10%;
+  max-height: 10%;
+}

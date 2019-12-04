@@ -36,7 +36,7 @@ let options = {
   cursor: ''
 };
 
-gfycat.trendingGifs(options).then(data => console.log(data));
+//gfycat.trendingGifs(options).then(data => console.log(data));
 
 //connect to the database
 const Chat = require("./models/Chat");
@@ -65,18 +65,25 @@ socket.on("connection", socket => {
     socket.broadcast.emit("notifyStopTyping");
   });
 
+  socket.on("meme", data => {
+    socket.broadcast.emit("meme", {
+      user: data.user,
+      message: data.meme
+    });
+  });
+
   socket.on("chat message", function(msg, usr) {
     console.log("message: " + msg);
 
     socket.broadcast.emit("received", { message: msg, user: usr });
 
 //save the chat to the database
-    connect.then(db => {
-      console.log("connected correctly to the server");
-      let chatMessage = new Chat({ message: msg, sender: "Anonymous" });
-
-      chatMessage.save();
-    });
+//    connect.then(db => {
+//      console.log("connected correctly to the server");
+//      let chatMessage = new Chat({ message: msg, sender: "Anonymous" });
+//
+//      chatMessage.save();
+//    });
   });
 });
 

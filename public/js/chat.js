@@ -69,7 +69,27 @@ socket.on("notifyStopTyping", () => {
   typing.innerText = "";
 });
 
+socket.on("meme", data => {
+  let li = document.createElement("li");
+  let span = document.createElement("span");
+  var messages = document.getElementById("messages");
+  messages.appendChild(img).src(data.meme);
+  messages.appendChild(span).append("by " + data.user);
+  console.log("recieved message");
+});
+
 function getUsername(){
     var name=prompt("Please enter your user name","Peter");
     username = name;
 }
+
+$(document).ready(function(){
+    $('img[class=preview]').each(function() {
+      console.log("worked");
+        $(this).click(function(){
+          $('#messages').append("<br> <img src='"+$(this).attr('src')+"'>");
+          
+          socket.emit("meme", $(this).attr('src'));
+        });
+    });
+});
