@@ -174,7 +174,7 @@ body {
   height: 50px;
   display: inline-block;
   border-radius: 50px;
-  background-color: #a3d063;
+  background: rgba(29, 43, 255, 0.46);
   border: 2px solid #a3d063;
   color: #fff;
   cursor: pointer;
