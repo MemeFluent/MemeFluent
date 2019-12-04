@@ -11,6 +11,7 @@ const http = require("http").Server(app);
 //use socket.io module
 const io = require("socket.io");
 
+const host ='localhost';
 const port = 5000;
 
 //use bodyParser middleware
@@ -45,10 +46,10 @@ socket.on("connection", socket => {
     socket.broadcast.emit("notifyStopTyping");
   });
 
-  socket.on("chat message", function(msg) {
+  socket.on("chat message", function(msg, usr) {
     console.log("message: " + msg);
 
-    socket.broadcast.emit("received", { message: msg });
+    socket.broadcast.emit("received", { message: msg, user: usr });
 
 //connect to gfycat API
     const Gfycat = require('gfycat-sdk');
@@ -83,6 +84,6 @@ socket.on("connection", socket => {
 });
 
 http.listen(port, () => {
-  console.log("Running on Port: " + port);
+  console.log(`MemeFluent is up and running!  Click here: http://${host}:${port}/`);
 });
 
