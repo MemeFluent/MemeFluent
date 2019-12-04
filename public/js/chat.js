@@ -81,7 +81,7 @@ socket.on("meme", data => {
 
 function getUsername(){
     username=prompt("Please enter your user name","Peter");
-    $('#messages').append("<span> "+username+" joins the chat</span>");
+    $('#messages').append("<span>(°ロ°)☝"+username+" joins the chat</span>");
 }
 
 $(document).ready(function(){
