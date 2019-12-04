@@ -69,17 +69,17 @@ socket.on("connection", socket => {
   });
 
   socket.on("chat message", function(msg, usr) {
-    console.log("message: " + msg);
+    console.log(usr + "'s message: " + msg);
 
     socket.broadcast.emit("received", { message: msg, user: usr });
 
 //save the chat to the database
-//    connect.then(db => {
-//      console.log("connected correctly to the server");
-//      let chatMessage = new Chat({ message: msg, sender: "Anonymous" });
-//
-//      chatMessage.save();
-//    });
+    connect.then(db => {
+      console.log(usr + " connected correctly to the server");
+      let chatMessage = new Chat({ message: msg, sender: "Anonymous" });
+
+      chatMessage.save();
+    });
   });
 });
 
