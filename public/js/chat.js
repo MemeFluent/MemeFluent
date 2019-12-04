@@ -70,10 +70,13 @@ socket.on("notifyStopTyping", () => {
 });
 
 socket.on("meme", data => {
-  let li = document.createElement("li");
+  let img = document.createElement("img");
   let span = document.createElement("span");
   var messages = document.getElementById("messages");
-  messages.appendChild(img).src(data.meme);
+  img.src = data.meme;
+  messages.appendChild(document.createElement("br"));
+  messages.appendChild(img);
+  messages.appendChild(document.createElement("br"));
   messages.appendChild(span).append("by " + data.user);
   console.log("recieved message");
 });
@@ -87,9 +90,8 @@ $(document).ready(function(){
     $('img[class=preview]').each(function() {
       console.log("worked");
         $(this).click(function(){
-          $('#messages').append("<br> <img src='"+$(this).attr('src')+"'>");
-          
-          socket.emit("meme", $(this).attr('src'));
+          $('#messages').append("<br> <img src='"+$(this).attr('src')+"'><br><span>by "+username+"</span>");
+          socket.emit("meme", $(this).attr('src'), username);
         });
     });
 });

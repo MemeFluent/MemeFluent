@@ -65,10 +65,11 @@ socket.on("connection", socket => {
     socket.broadcast.emit("notifyStopTyping");
   });
 
-  socket.on("meme", data => {
+  socket.on("meme", function(data, usr){
+    console.log(data);
     socket.broadcast.emit("meme", {
-      user: data.user,
-      message: data.meme
+      user: usr,
+      meme: data
     });
   });
 
