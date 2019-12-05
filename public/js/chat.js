@@ -76,7 +76,7 @@ socket.on("meme", data => {
   messages.appendChild(img);
   messages.appendChild(document.createElement("br"));
   messages.appendChild(span).append("by " + data.user);
-  console.log("recieved message");
+  console.log("received message");
 });
 
 function getUsername(){
