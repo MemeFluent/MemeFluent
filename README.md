@@ -16,8 +16,25 @@ A webapp to communicate through memes
  
 -The chat logs are backed up in a database at
  monogodb through dbconnect.js
+
+#Issues 
+ -Spent a lot of time figuring out how to use Web
+  Socket Programming for the chatroom feature while
+  also trying to back up these chats in the mongodb
+  database. We opted for a plugin extension to store
+  and view past chats
  
- #Features Not Implemented
+ -Since this was the first time we used an api, we 
+  struggled a lot on how to combine the Socket IO api
+  with the Gfycat Api. Since client side code in Node.js
+  cannot run the code from the API we tried to run it 
+  on the server side code. Unfortunately, we could not
+  parse the JSON object generated from the search to be
+  sent back to the client side code to interpret and 
+  display. We instead just hardcoded memes for the users
+  to select and send to the chat.
+ 
+#Features Not Implemented
  -A button in chatroom to search for desired sticker,
   gif, or meme to post. The main problem was figuring
   out how to use the Gfycat API whose documentation
