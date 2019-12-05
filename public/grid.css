@@ -1,0 +1,35 @@
+.container {
+    display: grid;
+    height: 250px;
+    grid-template-areas:
+        "a b"
+        "c d";
+    grid-row: auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: center;
+    justify-content: space-evenly;
+}
+.item1 {
+    grid-area: a;
+    width: 50%;
+    height: 50%;
+}
+
+.item2 {
+    grid-area: b;
+    width: 50%;
+    height: 50%;
+}
+
+.item3 {
+    grid-area: c;
+    width: 50%;
+    height: 50%;
+}
+
+.item4 {
+    grid-area: d;
+    width: 50%;
+    height: 50%;
+}
