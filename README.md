@@ -3,7 +3,11 @@ Alex Wallace
 Lily Tran
 Peter Chung
 
+#Functionality and Stack
 A webapp to communicate through memes
+
+-We used Node.js, Express, mongodb, bootsrap, Socket IO
+ HTML5, and CSS for this project.
 
 -We added multiple sections including your typical
  Home and About web pages
@@ -35,12 +39,12 @@ A webapp to communicate through memes
   to select and send to the chat.
  
 #Features Not Implemented
- -A button in chatroom to search for desired sticker,
-  gif, or meme to post. The main problem was figuring
-  out how to use the Gfycat API whose documentation
-  was terrible and unreadable. If we had enough time,
-  then we would have chosen a different api to search
-  for the appropriate meme
+-A button in chatroom to search for desired sticker,
+ gif, or meme to post. The main problem was figuring
+ out how to use the Gfycat API whose documentation
+ was terrible and unreadable. If we had enough time,
+ then we would have chosen a different api to search
+ for the appropriate meme
   
 -Login feature to allow only registered users for the 
  chat. However, still some bugs and not enough time to
