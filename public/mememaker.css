@@ -8,10 +8,6 @@
     max-height: 800px;
 }
 
-#imgFile {
-    display: none;
-}
-
 input[type='text'], input[type='range'] {
     width: 50%;
 }

@@ -49,3 +49,12 @@ A webapp to communicate through memes
 -Login feature to allow only registered users for the 
  chat. However, still some bugs and not enough time to
  fully implement.
+ 
+-Meme generator feature for users to build memes and 
+ post it in chatroom. Not enough time to completely
+ implement, but experimented with code.
+ 
+ #References Used to Help Develop Code
+-https://dev.to/rexeze/how-to-build-a-real-time-chat-app-with-nodejs-socketio-and-mongodb-2kho
+ 
+-https://www.cssscript.com/responsive-meme-generator/
