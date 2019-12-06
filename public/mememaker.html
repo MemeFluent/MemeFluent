@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mememaker</title>
+    <link href="./website.css" type="text/css" rel="stylesheet"/>
+    <link href="./mememaker.css" type="text/css" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+<div class="nav">
+    <div class="nav-items"><a href="index.html">Home</a></div>
+    <div class="nav-items"><a href="about.html">About</a></div>
+    <div class="nav-items"><a href="chatroom.html">Chatroom</a></div>
+</div>
+
+<div class="box">
+    <div>
+        <div id="canvasWrapper">
+        </div>
+    </div>
+
+    <div>
+        <h3><i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>Source Image</h3>
+        <div class="box">
+            <div>
+                <p>From URL</p>
+                <input id="imgURL" class="block" type="text" placeholder="Image Address" />
+            </div>
+
+        </div>
+
+
+        <h3><i class="fa fa-commenting-o fa-fw" aria-hidden="true"></i>Meme Text</h3>
+        <div class="box">
+            <div>
+                <p>Top Text</p>
+                <input id="textTop" type="text" class="block" placeholder="Top text" />
+            </div>
+            <div>
+                <p>Bottom Text</p>
+                <input id="textBottom" type="text" class="block" placeholder="Bottom text" />
+            </div>
+        </div>
+
+
+
+        <h3><i class="fa fa-text-height fa-fw" aria-hidden="true"></i>Text Size</h3>
+        <div class="box">
+            <div>
+                <p>Top Text: <span id="textSizeTopOut">10</span></p>
+                <input id="textSizeTop" type="range" min="2" max="50" step="2" />
+            </div>
+            <div>
+                <p>Bottom Text: <span id="textSizeBottomOut">10</span></p>
+                <input id="textSizeBottom" type="range" min="2" max="50" step="2" />
+            </div>
+        </div>
+
+
+
+        <div class="box">
+            <div>
+                <h3><i class="fa fa-eye fa-fw" aria-hidden="true"></i>Preview Size</h3>
+                <input id="trueSize" type="checkbox"/>
+                <label for="trueSize"><span>Show true size</span></label>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+<script src="./js/mememaker.js"></script>
+</body>
+</html>
