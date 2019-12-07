@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="/website.css" type="text/css" rel="stylesheet"/>
 </head>
 
 <body>
 
-<div class="nav">
-    <div class="nav-items"><a href="index.html">Home</a></div>
-    <div class="nav-items"><a href="about.html">About</a></div>
-    <div class="nav-items"><a href="chatroom.html">Chatroom</a></div>
-</div>
+<nav class="navbar navbar-expand-md navbar-dark" id="mainNavbar">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto mb-0" id="navbarItems">
+            <!--
+            <li class="nav-item active">
+                <a class = "nav-link" href = '#' id = "navbarName"></a>
+            </li>
+            -->
+            <li class="nav-item mt-4 ml-4">
+                <a class = "nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item mt-4">
+                <a class = "nav-link" href="about.html">About </a>
+            </li>
+            <li class="nav-item mt-4">
+                <a class="nav-link" href="chatroom.html">Chatroom </a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
 <h1 align="center" style="font-family: Garamond">
     <font size="30">Memefluent</font>
