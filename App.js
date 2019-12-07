@@ -42,20 +42,36 @@ let options = {
 const Chat = require("./models/Chat");
 const connect = require("./dbconnect");
 
+var userNum = 0;
+
+var userList = [];
+
 socket.on("connection", socket => {
   console.log("user connected");
+  userNum = userNum+1;
   var username = "test";
+  socket.broadcast.emit("userNum", {num: userNum, list: userList});
+
   socket.on("newUser", function(usr){
-    socket.broadcast.emit("newUser", {user: usr});
+    userList.push(usr);
+    socket.broadcast.emit("newUser", {user: usr, num: userNum, list: userList});
     username = usr;
+    
+    console.log(userList);
   });
 
   socket.on("disconnect", function() {
     console.log("user disconnected");
-    socket.broadcast.emit("remUser", {user: username});
+    userNum = userNum-1;
+    console.log(userNum);
+    socket.broadcast.emit("remUser", {user: username, num: userNum, list: userList});
+    console.log(userList);
+    userList.splice(userList.indexOf(username), 1);
+    console.log(userList);
   });
 
   socket.on("typing", data => {
+    socket.broadcast.emit("userNum", {num: userNum, list: userList});
     socket.broadcast.emit("notifyTyping", {
       user: data.user,
       message: data.message
@@ -75,6 +91,7 @@ socket.on("connection", socket => {
   });
 
   socket.on("chat message", function(msg, usr) {
+    socket.broadcast.emit("userNum", {num: userNum, list: userList});
     console.log(usr + "'s message: " + msg);
 
     socket.broadcast.emit("received", { message: msg, user: usr });

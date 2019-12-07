@@ -216,3 +216,21 @@ img {
   max-width: 10%;
   max-height: 10%;
 }
+
+.user-wrap {
+  position: relative;
+  float:left;
+  margin-left: 15px;
+  margin-right: -100px;
+}
+.user-wrap .user-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  color:white;
+  width: 100px;
+  padding: 5px;
+}
+.user-wrap:hover .user-content {
+  display: block;
+}

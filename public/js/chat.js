@@ -68,13 +68,29 @@ socket.on("notifyStopTyping", () => {
 });
 
 socket.on("newUser", data => {
-  $("#userNum").innerText = parseInt($("#userNum").innerText) + 1;
+  $("#userNum").text(data.num);
   $('#messages').append("<br><span>(°ロ°)☝"+data.user+" joins the chat</span>");
+  updateList(data.list);
 });
 
+function updateList(list){
+  $(".user-content").text("");
+  $(".user-content").append("Online Users:");
+  for(var i = 0; i < list.length; i=i+1){
+    $(".user-content").append("<br>"+list[i]);
+  }
+  console.log(list);
+}
+
 socket.on("remUser", data => {
-  $("#userNum").innerText = parseInt($("#userNum").innerText) - 1;
+  $("#userNum").text(data.num);
   $('#messages').append("<br><span>(・ω・)ノ"+data.user+" has left the chat</span>");
+  updateList(data.list);
+});
+
+socket.on("userNum", data => {
+  $("#userNum").text(data.num); 
+  updateList(data.list);
 });
 
 socket.on("meme", data => {
