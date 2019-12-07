@@ -20,6 +20,8 @@ A webapp to communicate through memes
  
 -The chat logs are backed up in a database at
  monogodb through dbconnect.js
+ 
+-The number of users online can be displayed
 
 #Issues 
  -Spent a lot of time figuring out how to use Web
