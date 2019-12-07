@@ -67,6 +67,16 @@ socket.on("notifyStopTyping", () => {
   typing.innerText = "";
 });
 
+socket.on("newUser", data => {
+  $("#userNum").innerText = parseInt($("#userNum").innerText) + 1;
+  $('#messages').append("<br><span>(°ロ°)☝"+data.user+" joins the chat</span>");
+});
+
+socket.on("remUser", data => {
+  $("#userNum").innerText = parseInt($("#userNum").innerText) - 1;
+  $('#messages').append("<br><span>(・ω・)ノ"+data.user+" has left the chat</span>");
+});
+
 socket.on("meme", data => {
   let img = document.createElement("img");
   let span = document.createElement("span");
@@ -79,12 +89,16 @@ socket.on("meme", data => {
   console.log("received message");
 });
 
-function getUsername(){
+function getUsername(){ 
     username=prompt("Please enter your user name","Peter");
-    $('#messages').append("<span>(°ロ°)☝"+username+" joins the chat</span>");
+    if(!username){
+      username = "Anonymous";
+    }
+    $('#messages').append("<br><span>(°ロ°)☝"+username+" joins the chat</span>");
+    socket.emit("newUser", username);
 }
 
-$(document).ready(function(){
+$(document).ready(function(){ //sets all images to clickable with the function to send to server
     $('img[class=preview]').each(function() {
         $(this).click(function(){
           $('#messages').append("<br> <img alt='displayMeme' src='"+$(this).attr('src')+"'><br><span>by "+username+"</span>");

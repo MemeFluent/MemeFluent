@@ -44,9 +44,15 @@ const connect = require("./dbconnect");
 
 socket.on("connection", socket => {
   console.log("user connected");
+  var username = "test";
+  socket.on("newUser", function(usr){
+    socket.broadcast.emit("newUser", {user: usr});
+    username = usr;
+  });
 
   socket.on("disconnect", function() {
     console.log("user disconnected");
+    socket.broadcast.emit("remUser", {user: username});
   });
 
   socket.on("typing", data => {
@@ -76,7 +82,7 @@ socket.on("connection", socket => {
 //save the chat to the database
     connect.then(db => {
       console.log(usr + " connected correctly to the server");
-      let chatMessage = new Chat({ message: msg, sender: "Anonymous" });
+      let chatMessage = new Chat({ message: msg, sender: usr });
 
       chatMessage.save();
     });
